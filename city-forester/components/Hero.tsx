@@ -25,7 +25,7 @@ function Hero() {
           className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[50px] font-extrabold text-white tracking-wide"
           style={{
             textShadow: "5px 3px 8px rgba(0, 0, 0, 0.8)",
-            background: "linear-gradient(to right, #ff7e5f, #feb47b)",
+            background: "linear-gradient(to right, #A2C6FFFF, #D4B9F3FF)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
@@ -73,23 +73,25 @@ function Hero() {
 
       {/* Categories Section */}
       <div className="mt-10 flex flex-col justify-center items-center px-4">
-        <h2 className="z-10 text-white font-semibold text-lg sm:text-xl">
-          ...Or Browse by Categories
-        </h2>
+      <h2 className="z-10 text-white font-semibold text-lg sm:text-xl bg-gradient-to-r from-blue-200 to-purple-500 text-transparent bg-clip-text">
+        ...Or Browse by Categories
+      </h2>
+
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 w-full max-w-3xl justify-items-center mt-6">
           {category.map((item, index) => (
             <div
-              key={index}
-              className="relative w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] flex items-center justify-center bg-white rounded-2xl shadow-md cursor-pointer hover:shadow-lg hover:border-blue-500 hover:scale-110 transition-transform duration-300"
-            >
-              <Image
-                src={item.icon}
-                alt={item.name}
-                width={50}
-                height={50}
-                className="object-contain"
-              />
-            </div>
+            key={index}
+            className="relative w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] flex items-center justify-center bg-white rounded-2xl shadow-md cursor-pointer hover:shadow-lg hover:border-blue-500 hover:scale-110 border-2 border-transparent transition-transform duration-300"
+          >
+            <Image
+              src={item.icon}
+              alt={item.name}
+              width={50}
+              height={50}
+              className="object-contain"
+            />
+          </div>
+          
           ))}
         </div>
       </div>

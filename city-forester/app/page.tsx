@@ -1,11 +1,37 @@
+"use client"
+
 import Hero from "@/components/Hero";
+import PlaceList from "@/components/PlaceList";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+
+  // Fetching data from the server-side API
+  const [placeList, setPlaceList]=useState([])
+  useEffect(()=>{
+    getPlaceList();
+  }, []);
+
+
+  const getPlaceList = async () => {
+    try {
+      const result = await fetch("/api/google-place-api?q=Kampala/Uganda");
+      const data = await result.json();
+      console.log(data.resp.results);
+      setPlaceList(data.resp.results);
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
   return (
     <div>
       <main >
        <Hero />
+
+
+      {placeList? <PlaceList placeList={placeList} />: null}
       </main>
 
 
