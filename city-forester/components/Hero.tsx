@@ -1,10 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import category from "@/data/category";
+import category from "@/data/category"; 
 
 function Hero() {
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading for category data or other content
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after 3 seconds (simulate fetch delay)
+    }, 5000);
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
+
   return (
     <div className="relative bg-gray-50">
       {/* Hero Background Image */}
@@ -25,7 +36,7 @@ function Hero() {
           className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[50px] font-extrabold text-white tracking-wide"
           style={{
             textShadow: "5px 3px 8px rgba(0, 0, 0, 0.8)",
-            background: "linear-gradient(to right, #A2C6FFFF, #D4B9F3FF)",
+            background: "linear-gradient(to right, #CEF348FF, #F7953AFF)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
@@ -71,30 +82,36 @@ function Hero() {
         </div>
       </div>
 
-      {/* Categories Section */}
-      <div className="mt-10 flex flex-col justify-center items-center px-4">
-      <h2 className="z-10 text-white font-semibold text-lg sm:text-xl bg-gradient-to-r from-blue-200 to-purple-500 text-transparent bg-clip-text">
-        ...Or Browse by Categories
-      </h2>
-
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 w-full max-w-3xl justify-items-center mt-6">
-          {category.map((item, index) => (
-            <div
-            key={index}
-            className="relative w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] flex items-center justify-center bg-white rounded-2xl shadow-md cursor-pointer hover:shadow-lg hover:border-blue-500 hover:scale-110 border-2 border-transparent transition-transform duration-300"
-          >
-            <Image
-              src={item.icon}
-              alt={item.name}
-              width={50}
-              height={50}
-              className="object-contain"
-            />
-          </div>
-          
-          ))}
+      {/* Loading Spinner / Placeholder */}
+      {loading ? (
+        <div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-50 z-20">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-600"></div>
         </div>
-      </div>
+      ) : (
+        // Categories Section
+        <div className="mt-10 flex flex-col justify-center items-center px-4">
+          <h2 className="z-10 text-white font-semibold text-lg sm:text-xl bg-gradient-to-r from-blue-200 to-purple-500 text-transparent bg-clip-text">
+            ...Or Browse by Categories
+          </h2>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 w-full max-w-3xl justify-items-center mt-6">
+            {category.map((item, index) => (
+              <div
+                key={index}
+                className="relative w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] flex items-center justify-center bg-white rounded-2xl shadow-md cursor-pointer hover:shadow-lg hover:border-blue-500 hover:scale-110 border-2 border-transparent transition-transform duration-300"
+              >
+                <Image
+                  src={item.icon}
+                  alt={item.name}
+                  width={50}
+                  height={50}
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

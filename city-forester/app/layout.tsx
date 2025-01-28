@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 
 const roboto = Roboto({
   variable: "--font-roboto",
-  subsets: ["latin"], // Use the correct subset
-  weight: ["400", "700"], // Add weights if needed
+  subsets: ["latin"], 
+  weight: ["400", "700"], 
 });
 
 export const metadata: Metadata = {

@@ -18,8 +18,10 @@ function PlaceList({ placeList }: PlaceListProps) {
       
       {placeList.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {placeList.map((place, index) => (
-            <PlaceItem key={index} place={place} />
+          {placeList.map((place:any, index:number) => (
+            <div className='z-10 ' key={index}>
+                <PlaceItem place={place} />
+            </div>
           ))}
         </div>
       ) : (
