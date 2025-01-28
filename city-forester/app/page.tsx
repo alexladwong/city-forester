@@ -16,7 +16,7 @@ export default function Home() {
 
   const getPlaceList = async () => {
     try {
-      const result = await fetch("/api/google-place-api?q=Kampala/Uganda");
+      const result = await fetch("/api/google-place-api?q=Hotels In Kampala");
       const data = await result.json();
       console.log(data.resp.results);
       setPlaceList(data.resp.results);
