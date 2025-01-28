@@ -11,7 +11,7 @@ function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); // Set loading to false after 3 seconds (simulate fetch delay)
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timer); // Cleanup timer on unmount
   }, []);
@@ -36,7 +36,7 @@ function Hero() {
           className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[50px] font-extrabold text-white tracking-wide"
           style={{
             textShadow: "5px 3px 8px rgba(0, 0, 0, 0.8)",
-            background: "linear-gradient(to right, #CEF348FF, #F7953AFF)",
+            background: "linear-gradient(to right, #C1F2F6FF, #F7953AFF)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}

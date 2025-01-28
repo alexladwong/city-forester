@@ -1,5 +1,6 @@
-"use public";
-import React, { ReactNode } from "react";
+"use client";
+
+import React, { ReactNode, useState, useEffect } from "react";
 import Image from "next/image";
 
 interface Place {
@@ -10,11 +11,16 @@ interface Place {
   business_status?: string;
   rating?: number;
   user_ratings_total?: number;
+  photos?: { photo_reference: string }[];
 }
 
-const BASE_URL_PHOTO = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400"
+const BASE_URL_PHOTO = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+
 function PlaceItem({ place }: { place: Place }) {
-  // If the place is not yet loaded or is missing, display the loading state
+  // Track loading state for the image
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading state for the entire component (like fetching data)
   if (!place) {
     return (
       <div className="w-full border rounded-xl shadow-md p-6 flex justify-center items-center">
@@ -23,16 +29,27 @@ function PlaceItem({ place }: { place: Place }) {
     );
   }
 
+  // Image onLoad event to set loading to false
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="w-full bg-white border-[1.5px] border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out">
-      {/* Placeholder Image */}
-      <div className="relative w-full h-[150px] bg-gray-100">
+    <div className="w-full bg-white border-[1.5px] border-gray-200 rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-lg hover:border-blue-500 hover:scale-105 border-2 border-transparent transition-transform duration-300 transition-shadow duration-300 ease-in-out">
+      {/* Image Placeholder or Loading Spinner */}
+      <div className="relative w-full h-[150px] bg-gray-100 z-10 hover:shadow-lg transition-shadow duration-300 ease-in-out">
+        {isLoading && (
+          <div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-50 z-20">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-600"></div>
+          </div>
+        )}
         <Image
-          src={BASE_URL_PHOTO+"&photo_reference="+place?.photos[0]?.photo_reference+"&key="+process.env.NEXT_PUBLIC_GOOGLE_PLACE_KEY}
+          src={`${BASE_URL_PHOTO}&photo_reference=${place?.photos?.[0]?.photo_reference}&key=${process.env.NEXT_PUBLIC_GOOGLE_PLACE_KEY}`}
           alt={`${place.name} image`}
           layout="fill"
           objectFit="cover"
           className="rounded-t-xl"
+          onLoadingComplete={handleImageLoad}
         />
       </div>
 
