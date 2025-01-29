@@ -64,21 +64,10 @@ function PlaceItem({ place }: { place: Place }) {
         <h3 className="text-lg font-semibold text-gray-800 truncate">
           {place.name}
         </h3>
-        {place.opening_hours && (
-          <p className="text-sm text-gray-500">
-            Status: {place.open_now }
-          </p>
-        )}
+        
 
         {/* Phone Number Box */}
-      {place.formatted_phone_number && (
-        <div className="absolute top-2 left-2 bg-black/60 text-white px-3 py-1 rounded-lg flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-red">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8.5a4.5 4.5 0 014.5-4.5h0a4.5 4.5 0 014.5 4.5v0a4.5 4.5 0 01-4.5 4.5h0A4.5 4.5 0 013 8.5zM19 16.5c-.86-.86-1.86-1.29-3-1.29s-2.14.43-3 1.29l-.71.71A9.97 9.97 0 015 14v-2a9.97 9.97 0 01-1.71-5.29l.71-.71C5.86 5.14 6.86 4.71 8 4.71s2.14.43 3 1.29l.71.71A9.97 9.97 0 0119 10v2a9.97 9.97 0 011.71 5.29l-.71.71z" />
-          </svg>
-          <span className="text-sm font-medium">{place.formatted_phone_number}</span>
-        </div>
-      )}
+     
 
         {/* Ratings and Address */}
         <div className="flex items-center justify-between mt-3">
