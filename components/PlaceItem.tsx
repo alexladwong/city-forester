@@ -4,15 +4,15 @@ import React, { ReactNode, useState, useEffect } from "react";
 import Image from "next/image";
 
 interface Place {
-  [x: string]: ReactNode;
   name: string;
   formatted_address?: string;
   vicinity?: string;
   business_status?: string;
   rating?: number;
   user_ratings_total?: number;
-  photos?: { photo_reference: string }[];
+  photos?: { photo_reference: string }[]; 
 }
+
 
 const BASE_URL_PHOTO =
   "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
