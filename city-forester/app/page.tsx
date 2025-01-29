@@ -40,12 +40,12 @@ export default function Home() {
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center p-4 border-t border-gray-200 bg-gray-50 dark:bg-gray-900 dark:border-gray-700">
       <a
         className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:underline hover:underline-offset-4"
-        href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+        href="https://www.linkedin.com/in/ap-kintu-alex-ladwong-8b5629101/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-        Learn
+        <Image aria-hidden src="/file.svg" alt="File icon" width={26} height={26} />
+        Learn More...
       </a>
       <a
         className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:underline hover:underline-offset-4"
@@ -53,16 +53,16 @@ export default function Home() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} />
-        Examples
+        <Image aria-hidden src="/git.png" alt="Window icon" className="bg-white rounded-full" width={26} height={26} />
+        For More Code Examples
       </a>
       <a
-        className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:underline hover:underline-offset-4"
+        className="flex items-center gap-2 text-gray-200 dark:text-gray-100 hover:underline hover:underline-offset-4"
         href="https://ladwongdevelopers.com/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
+        <Image aria-hidden src="/globe.svg" alt="Globe icon" width={26} height={26} />
         Go my portfolio for more →
       </a>
     </footer>
