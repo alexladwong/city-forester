@@ -26,21 +26,26 @@ function PlaceList({ placeList }: PlaceListProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {placeList.map((place: Place, index: number) => (
             <div className="z-10" key={index} 
-            onClick={()=>setselectedPlace(place)}>
+            onClick={() => setselectedPlace(place)}>
               <PlaceItem place={place} />
             </div>
           ))}
         </div>
       ) : (
         <p className="text-center text-gray-500 mt-4">
-          No places found. Try searching again!
+          Weak Internet Connection!<strong>Loading...</strong>
         </p>
       )}
 
       {/* Side Drawer */}
-      {selectedPlace?.name?<div className='top-0 fixed right-0 z-20'>
-        <SideDrawer close={()=>setselectedPlace([])}/>
-      </div>:null}
+      {selectedPlace?.name ? (
+        <div className="fixed h-[70%] top-1/2 right-0 transform -translate-y-1/3 z-20">
+          <SideDrawer 
+            place={selectedPlace}
+            close={() => setselectedPlace([])} 
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

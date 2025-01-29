@@ -10,13 +10,13 @@ export default function Home() {
   // Fetching data from the server-side API
   const [placeList, setPlaceList]=useState([])
   useEffect(()=>{
-    getPlaceList();
+    getPlaceList('Coffee Shop/Bars in Uganda');
   }, []);
 
 
-  const getPlaceList = async () => {
+  const getPlaceList = async (value:string) => {
     try {
-      const result = await fetch("/api/google-place-api?q=Leisure Places In uganda ");
+      const result = await fetch("/api/google-place-api?q="+value);
       const data = await result.json();
       console.log(data.resp.results);
       setPlaceList(data.resp.results);
@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <div>
       <main >
-       <Hero />
+       <Hero userInput={(value:string)=>getPlaceList(value)} />
 
 
       {placeList? <PlaceList placeList={placeList} />: null}

@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import category from "@/data/category"; 
 
-function Hero() {
+function Hero({userInput}:any) {
   const [loading, setLoading] = useState(true);
+  const [searchInput, setSearchInput] = useState<string>();
 
   // Simulate loading for category data or other content
   useEffect(() => {
@@ -59,10 +60,13 @@ function Hero() {
           <div className="relative w-full max-w-lg mx-auto">
             <input
               type="text"
+              onChange={(e)=>setSearchInput(e.target.value)}
               className="w-full py-3 px-5 pr-12 rounded-md shadow-lg outline-blue-950 border border-gray-300 focus:outline-blue-700 focus:ring-2 focus:ring-blue-500 transition-transform duration-300 ease-in-out transform hover:scale-[1.02]"
               placeholder="Search for tours, attractions, or places..."
             />
-            <button className="absolute top-1/2 right-3 -translate-y-1/2 bg-blue-800 rounded-md p-3 shadow-lg hover:bg-blue-700 transition-transform duration-300 ease-in-out transform hover:scale-105">
+            <button
+            onClick={()=>userInput(searchInput)}
+            className="absolute top-1/2 right-3 -translate-y-1/2 bg-blue-800 rounded-md p-3 shadow-lg hover:bg-blue-700 transition-transform duration-300 ease-in-out transform hover:scale-105">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
