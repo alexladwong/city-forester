@@ -37,7 +37,9 @@ export default function Home() {
 
 
 
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center p-4 border-t border-gray-200 bg-gray-50 dark:bg-gray-900 dark:border-gray-700">
+      <footer className="row-start-3 flex gap-6 flex-wrap 
+      items-center justify-center p-4 border-t border-gray-200
+      mt-5 bg-gray-50 dark:bg-gray-900 dark:border-gray-700">
       <a
         className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:underline hover:underline-offset-4"
         href="https://www.linkedin.com/in/ap-kintu-alex-ladwong-8b5629101/"

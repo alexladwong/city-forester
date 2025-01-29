@@ -61,7 +61,7 @@ function PlaceItem({ place }: { place: Place }) {
 
       {/* Place Details */}
       <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800 truncate">
+        <h3 className="text-lg font-semibold text-gray-500 truncate">
           {place.name}
         </h3>
         
