@@ -63,7 +63,7 @@ export default function Home() {
         rel="noopener noreferrer"
       >
         <Image aria-hidden src="/globe.svg" alt="Globe icon" width={26} height={26} />
-        Go my portfolio for more →
+        Go to my portfolio for more →
       </a>
     </footer>
     </div>
